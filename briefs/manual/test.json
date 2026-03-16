@@ -1,0 +1,9 @@
+{
+  "id": "lucky-line-hero-test",
+  "template": "hero-image",
+  "size": "square",
+  "props": {
+    "headline": "Your Winning Journey Starts Here",
+    "cta": "Board the Lucky Line!"
+  }
+}

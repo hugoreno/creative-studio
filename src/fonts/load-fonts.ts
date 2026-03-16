@@ -13,6 +13,7 @@ let cachedFonts: FontData[] | null = null;
 const require = createRequire(import.meta.url);
 
 function resolveFontsource(pkg: string, file: string): string {
+  // Resolve the package directory, then construct the path to the font file
   const pkgJson = require.resolve(`${pkg}/package.json`);
   return pkgJson.replace("package.json", `files/${file}`);
 }

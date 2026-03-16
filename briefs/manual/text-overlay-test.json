@@ -1,0 +1,9 @@
+{
+  "id": "lucky-line-overlay-test",
+  "template": "text-overlay",
+  "size": "story",
+  "props": {
+    "headline": "Ride the Train to Jackpot City",
+    "cta": "Play Now — Free Coins!"
+  }
+}

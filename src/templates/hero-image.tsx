@@ -1,6 +1,6 @@
 import React from "react";
-import { tokens } from "../lib/tokens";
-import type { CreativeBrief } from "../lib/schemas";
+import { tokens } from "@bordo/ui";
+import type { CreativeBrief } from "@bordo/ad-insights";
 
 export function HeroImage({ brief }: { brief: CreativeBrief }) {
   const { props, size } = brief;
@@ -25,6 +25,7 @@ export function HeroImage({ brief }: { brief: CreativeBrief }) {
         backgroundColor: bgColor,
       }}
     >
+      {/* Hero image area */}
       <div
         style={{
           display: "flex",
@@ -57,6 +58,7 @@ export function HeroImage({ brief }: { brief: CreativeBrief }) {
         )}
       </div>
 
+      {/* Content area */}
       <div
         style={{
           display: "flex",

@@ -1,0 +1,9 @@
+{
+  "id": "lucky-line-split-test",
+  "template": "split-screen",
+  "size": "landscape",
+  "props": {
+    "headline": "Next Stop: Big Wins",
+    "cta": "All Aboard!"
+  }
+}

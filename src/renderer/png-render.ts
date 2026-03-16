@@ -1,5 +1,5 @@
 import { Resvg } from "@resvg/resvg-js";
-import type { CreativeBrief } from "../lib/schemas";
+import type { CreativeBrief } from "@bordo/ad-insights";
 import { renderToSvg } from "./satori-render";
 
 export async function renderToPng(brief: CreativeBrief): Promise<Buffer> {

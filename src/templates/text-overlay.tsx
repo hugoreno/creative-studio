@@ -1,6 +1,6 @@
 import React from "react";
-import { tokens } from "../lib/tokens";
-import type { CreativeBrief } from "../lib/schemas";
+import { tokens } from "@bordo/ui";
+import type { CreativeBrief } from "@bordo/ad-insights";
 
 export function TextOverlay({ brief }: { brief: CreativeBrief }) {
   const { props, size } = brief;
@@ -24,6 +24,7 @@ export function TextOverlay({ brief }: { brief: CreativeBrief }) {
         position: "relative",
       }}
     >
+      {/* Background */}
       {props.backgroundImage ? (
         <img
           src={props.backgroundImage}
@@ -46,6 +47,7 @@ export function TextOverlay({ brief }: { brief: CreativeBrief }) {
         />
       )}
 
+      {/* Dark overlay for readability */}
       <div
         style={{
           display: "flex",
@@ -56,6 +58,7 @@ export function TextOverlay({ brief }: { brief: CreativeBrief }) {
         }}
       />
 
+      {/* Text content */}
       <div
         style={{
           display: "flex",

@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useRef, useCallback, useMemo } from "react";
-import { tokens } from "@/src/lib/tokens";
-import type { CreativeBrief } from "@/src/lib/schemas";
-import { HeroImage } from "@/src/templates/hero-image";
-import { TextOverlay } from "@/src/templates/text-overlay";
-import { SplitScreen } from "@/src/templates/split-screen";
+import { tokens } from "@bordo/ui";
+import type { CreativeBrief } from "@bordo/ad-insights";
+import { HeroImage } from "../src/templates/hero-image";
+import { TextOverlay } from "../src/templates/text-overlay";
+import { SplitScreen } from "../src/templates/split-screen";
 
 type TemplateName = "hero-image" | "text-overlay" | "split-screen";
 type AdSize = "square" | "landscape" | "story";
@@ -132,6 +132,7 @@ export default function CreativeStudioPage() {
       <aside className="w-[360px] shrink-0 overflow-y-auto border-r border-white/10 bg-[#12122a] p-5 flex flex-col gap-5">
         <h1 className="text-lg font-bold tracking-tight">Creative Studio</h1>
 
+        {/* Template selector */}
         <Section label="Template">
           <div className="flex gap-2">
             {TEMPLATES.map((t) => (
@@ -150,6 +151,7 @@ export default function CreativeStudioPage() {
           </div>
         </Section>
 
+        {/* Size selector */}
         <Section label="Size">
           <div className="flex gap-2">
             {SIZES.map((s) => (
@@ -169,6 +171,7 @@ export default function CreativeStudioPage() {
           </div>
         </Section>
 
+        {/* Text inputs */}
         <Section label="Headline">
           <textarea
             value={headline}
@@ -197,6 +200,7 @@ export default function CreativeStudioPage() {
           />
         </Section>
 
+        {/* Color pickers */}
         <Section label="Colors">
           <div className="grid grid-cols-2 gap-3">
             <ColorPicker label="Background" value={bgColor} onChange={setBgColor} />
@@ -206,6 +210,7 @@ export default function CreativeStudioPage() {
           </div>
         </Section>
 
+        {/* Actions */}
         <div className="mt-auto flex flex-col gap-2 border-t border-white/10 pt-5">
           <button
             onClick={handleExport}
@@ -281,6 +286,7 @@ function PreviewContainer({
   height: number;
   children: React.ReactNode;
 }) {
+  // Scale the full-resolution template to fit the viewport
   const maxW = 700;
   const maxH = 750;
   const scale = Math.min(maxW / width, maxH / height);

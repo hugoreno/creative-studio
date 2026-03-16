@@ -1,6 +1,6 @@
 import React from "react";
-import { tokens } from "../lib/tokens";
-import type { CreativeBrief } from "../lib/schemas";
+import { tokens } from "@bordo/ui";
+import type { CreativeBrief } from "@bordo/ad-insights";
 
 export function SplitScreen({ brief }: { brief: CreativeBrief }) {
   const { props, size } = brief;
@@ -12,6 +12,7 @@ export function SplitScreen({ brief }: { brief: CreativeBrief }) {
   const ctaColor = colors.ctaColor ?? tokens.colors.white;
 
   const isVertical = dimensions.height > dimensions.width;
+  // For vertical formats, stack instead of side-by-side
   const splitVertically = isVertical;
 
   const imageSize = splitVertically
@@ -32,6 +33,7 @@ export function SplitScreen({ brief }: { brief: CreativeBrief }) {
         backgroundColor: bgColor,
       }}
     >
+      {/* Image half */}
       <div
         style={{
           display: "flex",
@@ -68,6 +70,7 @@ export function SplitScreen({ brief }: { brief: CreativeBrief }) {
         )}
       </div>
 
+      {/* Text half */}
       <div
         style={{
           display: "flex",
