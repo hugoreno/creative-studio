@@ -6,18 +6,11 @@ import { getTemplate } from "../../../src/templates/index";
 
 export const runtime = "edge";
 
-// Fonts are resolved at build time and bundled into the edge function.
-const interRegularFont = fetch(
-  new URL("../../../public/fonts/inter-latin-400-normal.woff", import.meta.url)
-).then((res) => res.arrayBuffer());
-
-const interBoldFont = fetch(
-  new URL("../../../public/fonts/inter-latin-700-normal.woff", import.meta.url)
-).then((res) => res.arrayBuffer());
-
-const playfairBoldFont = fetch(
-  new URL("../../../public/fonts/playfair-display-latin-700-normal.woff", import.meta.url)
-).then((res) => res.arrayBuffer());
+// Resolve font URLs at build time (webpack bundles them into the edge function).
+// We store the URLs, not the fetch promises, so fonts can be re-read on every request.
+const interRegularUrl = new URL("../../../public/fonts/inter-latin-400-normal.woff", import.meta.url);
+const interBoldUrl = new URL("../../../public/fonts/inter-latin-700-normal.woff", import.meta.url);
+const playfairBoldUrl = new URL("../../../public/fonts/playfair-display-latin-700-normal.woff", import.meta.url);
 
 export async function POST(request: Request) {
   try {
@@ -28,9 +21,9 @@ export async function POST(request: Request) {
     const dimensions = tokens.sizes.ad[brief.size];
 
     const [interRegular, interBold, playfairBold] = await Promise.all([
-      interRegularFont,
-      interBoldFont,
-      playfairBoldFont,
+      fetch(interRegularUrl).then((r) => r.arrayBuffer()),
+      fetch(interBoldUrl).then((r) => r.arrayBuffer()),
+      fetch(playfairBoldUrl).then((r) => r.arrayBuffer()),
     ]);
 
     const element = React.createElement(Template, { brief });
