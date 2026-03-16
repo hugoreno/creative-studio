@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef, useCallback, useMemo } from "react";
-import { tokens } from "@bordo/ui";
-import type { CreativeBrief } from "@bordo/ad-insights";
+import { tokens } from "../src/lib/tokens";
+import type { CreativeBrief } from "../src/lib/types";
 import { HeroImage } from "../src/templates/hero-image";
 import { TextOverlay } from "../src/templates/text-overlay";
 import { SplitScreen } from "../src/templates/split-screen";

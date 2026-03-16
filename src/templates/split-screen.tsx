@@ -1,6 +1,6 @@
 import React from "react";
-import { tokens } from "@bordo/ui";
-import type { CreativeBrief } from "@bordo/ad-insights";
+import { tokens } from "../lib/tokens";
+import type { CreativeBrief } from "../lib/types";
 
 export function SplitScreen({ brief }: { brief: CreativeBrief }) {
   const { props, size } = brief;

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { CreativeBriefSchema } from "@bordo/ad-insights";
+import { CreativeBriefSchema } from "../../../src/lib/schemas";
 import { renderToPng } from "../../../src/renderer/png-render";
 
 export const runtime = "nodejs";

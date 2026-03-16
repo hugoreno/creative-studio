@@ -1,8 +1,8 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
-import { CompetitorInsightsSchema } from "@bordo/ad-insights";
-import type { CreativeBrief, CompetitorInsights, LayoutPattern } from "@bordo/ad-insights";
-import { tokens } from "@bordo/ui";
+import { CompetitorInsightsSchema } from "../lib/schemas";
+import type { CreativeBrief, LayoutPattern } from "../lib/types";
+import { tokens } from "../lib/tokens";
 
 const TEMPLATE_MAP: Record<string, CreativeBrief["template"]> = {
   "hero-image-top": "hero-image",

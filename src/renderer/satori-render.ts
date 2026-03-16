@@ -1,7 +1,7 @@
 import satori from "satori";
 import React from "react";
-import { tokens } from "@bordo/ui";
-import type { CreativeBrief } from "@bordo/ad-insights";
+import { tokens } from "../lib/tokens";
+import type { CreativeBrief } from "../lib/types";
 import { getTemplate } from "../templates/index";
 import { loadFonts } from "../fonts/load-fonts";
 

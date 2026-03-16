@@ -1,4 +1,4 @@
-import type { CreativeBrief } from "@bordo/ad-insights";
+import type { CreativeBrief } from "../lib/types";
 import { HeroImage } from "./hero-image";
 import { TextOverlay } from "./text-overlay";
 import { SplitScreen } from "./split-screen";

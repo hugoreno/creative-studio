@@ -1,7 +1,7 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join, extname } from "node:path";
-import { CreativeBriefSchema } from "@bordo/ad-insights";
-import type { CreativeBrief } from "@bordo/ad-insights";
+import { CreativeBriefSchema } from "../lib/schemas";
+import type { CreativeBrief } from "../lib/types";
 
 export async function loadBrief(filePath: string): Promise<CreativeBrief> {
   const raw = await readFile(filePath, "utf-8");

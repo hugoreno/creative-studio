@@ -1,6 +1,6 @@
 import { writeFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
-import type { CreativeBrief } from "@bordo/ad-insights";
+import type { CreativeBrief } from "../lib/types";
 import { renderToPng } from "./png-render";
 
 export interface BatchResult {
