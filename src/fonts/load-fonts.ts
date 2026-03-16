@@ -14,6 +14,7 @@ function fontPath(file: string): string {
   return join(process.cwd(), "public", "fonts", file);
 }
 
+/** Load fonts from the filesystem. Used by the CLI renderer (not the API route). */
 export async function loadFonts(): Promise<FontData[]> {
   if (cachedFonts) return cachedFonts;
 
