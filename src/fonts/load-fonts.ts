@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { createRequire } from "node:module";
+import { join } from "node:path";
 
 export interface FontData {
   name: string;
@@ -10,21 +10,17 @@ export interface FontData {
 
 let cachedFonts: FontData[] | null = null;
 
-const require = createRequire(import.meta.url);
-
-function resolveFontsource(pkg: string, file: string): string {
-  // Resolve the package directory, then construct the path to the font file
-  const pkgJson = require.resolve(`${pkg}/package.json`);
-  return pkgJson.replace("package.json", `files/${file}`);
+function fontPath(pkg: string, file: string): string {
+  return join(process.cwd(), "node_modules", pkg, "files", file);
 }
 
 export async function loadFonts(): Promise<FontData[]> {
   if (cachedFonts) return cachedFonts;
 
   const [interRegular, interBold, playfairBold] = await Promise.all([
-    readFile(resolveFontsource("@fontsource/inter", "inter-latin-400-normal.woff")),
-    readFile(resolveFontsource("@fontsource/inter", "inter-latin-700-normal.woff")),
-    readFile(resolveFontsource("@fontsource/playfair-display", "playfair-display-latin-700-normal.woff")),
+    readFile(fontPath("@fontsource/inter", "inter-latin-400-normal.woff")),
+    readFile(fontPath("@fontsource/inter", "inter-latin-700-normal.woff")),
+    readFile(fontPath("@fontsource/playfair-display", "playfair-display-latin-700-normal.woff")),
   ]);
 
   cachedFonts = [
